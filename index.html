@@ -4,23 +4,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>WDD 231 - Ronal Orellana</title>
+    <meta name="description" content="WDD 231 - by Ronal Orellna">
+    <meta name="author" content="Ronal Orellana">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Krub:ital,wght@0,400&family=Open+Sans:ital@0;1&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+    <script defer src="scripts/getdates.js"></script>
+    <script defer src="scripts/buttons.js"></script>
 </head>
 
 <body>
     <header>
+        <div id="header">
+            <img src="images/photo.jpeg" alt="Ronal-photo">
+            <h1>Ronal B. Orellana </h1>
+            <button type="button" id="menu"></button>
+        </div>
 
+        <div class="navigator">
+            <nav class="navigation">
+                <a href="index.html">Home</a>
+                <a href="#">Chamber</a>
+                <a href="#">Github Profile</a>
+                <a href="https://www.linkedin.com/in/ronal-orellana-17a10b224">LinkedIn</a>
+            </nav>
+        </div>
     </header>
     <main>
-        <section>
-            <h1>Home</h1>
-            <p>Home page</p>
+        <section class="course-work">
+            <h2>Course Work</h2>
+            <div class="list">
+                <ul>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                </ul>
+            </div>
+        </section>
+        <section class="country">
+            <h2>El Salvador</h2>
+            <div class="info">
+                <img src="images/nationalTree.jpeg" alt="tree">
+                <p>Maquilishuat Tree</p>
+            </div>
+        </section>
+        <section class="course">
+            <h2>Web and Computer Progamming Certificate</h2>
+            <div class="courses" id="courses">
+
+            </div>
+            <div class="line"></div>
+            <div class="courses-info" id="info">
+
+            </div>
         </section>
     </main>
     <footer>
-        <p>Footer</p>
+        <p id="currentyear"></p>
+        <p id="lastModified">mmm</p>
     </footer>
-
 </body>
 
 </html>
