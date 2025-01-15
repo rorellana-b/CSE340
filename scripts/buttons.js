@@ -22,7 +22,7 @@ const courses = [
             'HTML',
             'CSS'
         ],
-        completed: false
+        completed: true
     },
     {
         subject: 'CSE',
@@ -46,7 +46,7 @@ const courses = [
         technology: [
             'C#'
         ],
-        completed: false
+        completed: true
     },
     {
         subject: 'WDD',
@@ -60,7 +60,7 @@ const courses = [
             'CSS',
             'JavaScript'
         ],
-        completed: false
+        completed: true
     },
     {
         subject: 'WDD',
@@ -109,11 +109,25 @@ function displayCourses(subject = '') {
     filteredCourses.forEach(course => {
         const courseElement = document.createElement('div');
         courseElement.classList.add('course-item');
-        courseElement.innerHTML = `
-            <button>${course.subject} ${course.number}</button>
+        // Check if the course is completed
+        const checkMark = course.completed ? '<i class="fas fa-check"></i>' : '';
+
+        const sum =
+
+            courseElement.innerHTML = `
+            <button>${course.subject} ${course.number} ${checkMark}</button>
         `;
+
         coursesContainer.appendChild(courseElement);
     });
+    updateTotalCredits(filteredCourses);
+}
+
+// Function to sum the credits
+function updateTotalCredits(filteredCourses) {
+    const totalCredits = filteredCourses.reduce((sum, course) => sum + course.credits, 0);
+    const creditContainer = document.getElementById('total-credits');
+    creditContainer.textContent = `The total number of courses listed below is ${totalCredits}`;
 }
 
 // Inirtialize buttons and display all courses

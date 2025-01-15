@@ -50,6 +50,7 @@ main {
 
 .courses-info button {
     text-align: center;
+    font-size: 1.2em;
     background-color: var(--secundary-color);
     color: white;
     border: none;
@@ -69,6 +70,7 @@ main {
 
 .courses button {
     text-align: center;
+    font-size: 1.2em;
     background-color: var(--primary-color);
     color: white;
     border: none;
@@ -106,6 +108,7 @@ div nav {
 nav a {
     color: white;
     font-style: normal;
+    font-size: 1.23em;
     text-decoration: none;
 
 }
@@ -114,7 +117,7 @@ nav a:hover {
     color: var(--third-color);
     font-style: normal;
     text-decoration: none;
-    font-size: 1.02em;
+    font-size: 1.25em;
 }
 
 #header {
@@ -192,6 +195,10 @@ img {
 
 .list a {
     margin: 5% 0%;
+}
+
+#total-credits {
+    color: var(--third-color);
 }
 
 #menu {
