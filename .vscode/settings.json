@@ -1,3 +1,19 @@
 {
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5501,
+    "sqltools.connections": [
+        {
+            "pgOptions": {
+                "ssl": {
+                    "rejectUnauthorized": true,
+                    "key": ""
+                }
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "driver": "PostgreSQL",
+            "name": "demo2024",
+            "username": "demo2024",
+            "connectString": "postgresql://demo2024:RGd6ExrzHg49jeue6vcp4t4pORkLUarI@dpg-cu6phtggph6c73c8vau0-a.oregon-postgres.render.com/demo2024"
+        }
+    ]
 }
