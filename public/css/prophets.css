@@ -1,0 +1,47 @@
+:root {
+    --colorLine: #def3f9;
+    --colorBlue: #09106d;
+    --colorBlack: #000;
+    --colorWhite: #fff;
+    ;
+}
+
+header {
+    color: var(--colorBlue);
+    text-align: center;
+}
+
+#cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 4fr));
+    grid-gap: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+#cards img {
+    max-width: 90%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+h2 {
+    color: var(--colorBlack);
+    margin: 5% 2% 2% 2%;
+    text-align: center;
+    color: var(--colorBlue);
+}
+
+#cards section {
+    background-color: var(--colorLine);
+    border: solid 2px var(--colorBlack);
+    border-radius: 15px;
+    padding: 3px;
+    box-shadow: 2px 2px 2px var(--colorBlack);
+}
+
+p {
+    color: var(--colorBlack);
+    margin: 0;
+    text-align: center;
+}

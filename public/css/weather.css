@@ -1,0 +1,15 @@
+main {
+    background-color: #f6f0da;
+    border-radius: 10px;
+    text-align: center;
+}
+
+h2 {
+    color: #3a5250;
+    margin: .3rem 0;
+}
+
+p {
+    text-transform: capitalize;
+
+}
