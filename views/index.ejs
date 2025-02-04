@@ -1,17 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<%- include ('partials/head.ejs') %>
-
-    <body>
-        <div id="wrapper">
-            <%- include ('partials/header.ejs') %>
-                <%- include ('partials/navigation.ejs') %>
-                    <main>
-                        <%- include ('partials/main.ejs') %>
-                    </main>
-                    <%- include ('partials/footer.ejs') %>
+<h1>Welcome to CSE Motors!</h1>
+<div id="container">
+    <div id="featured">
+        <h2>DMC Delorean</h2>
+        <p>3 Cups holders</p>
+        <p>Superman doors</p>
+        <p>Fuzzy dice!</p>
+        <button>Own Today</button>
+    </div>
+    <div id="hero">
+        <img src="../images/vehicles/delorean.jpg" alt="Delorean">
+    </div>
+</div>
+<div id="info">
+    <div id="reviews">
+        <h2>DMC Delorean Reviews</h2>
+        <ol>
+            <li>"So fast it's almost like traveling in time." (4/5)</li>
+            <li>"Coolest ride on the road". (4/5)</li>
+            <li>"I'm feeling McFly!." (5/5)</li>
+            <li>"The most futuristic ride of our day." (4.5/5)</li>
+            <li>"80's livin and love it" (5/5)</li>
+        </ol>
+    </div>
+    <div>
+        <h2>Delorean Upgrades</h2>
+        <div id="upgrades">
+            <div>
+                <div class="upgrades-container">
+                    <img src="../images/upgrades/flux-cap.png" alt="Flux">
+                </div>
+                <p>Flux Capacitor</p>
+            </div>
+            <div>
+                <div class="upgrades-container">
+                    <img src="../images/upgrades/flame.jpg" alt="Flame">
+                </div>
+                <p>Flame Decals</p>
+            </div>
+            <div>
+                <div class="upgrades-container">
+                    <img src="../images/upgrades/bumper_sticker.jpg" alt="Bumper">
+                </div>
+                <p>Bumper Stickers</p>
+            </div>
+            <div>
+                <div class="upgrades-container">
+                    <img src="../images/upgrades/hub-cap.jpg" alt="Hub">
+                </div>
+                <p>Hub Caps</p>
+            </div>
         </div>
-    </body>
 
-</html>
+    </div>
+</div>

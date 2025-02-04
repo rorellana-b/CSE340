@@ -61,7 +61,17 @@ a {
 
 /* Styles for navigation bar  */
 .navigation {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  text-align: center;
+  padding: 10px 20px;
+  width: 100%;
   background-color: var(--colorBlack);
+}
+
+.navigation ul {
+  width: 90%;
 }
 
 .navigation li {
@@ -70,6 +80,12 @@ a {
   color: var(--colorWhite);
   padding: 3%;
   margin: 3%;
+  font-size: 1.5rem;
+}
+
+.navigation a {
+  color: var(--colorWhite);
+  text-decoration: none;
   font-size: 1.5rem;
 }
 
@@ -180,11 +196,91 @@ h2 {
   margin: 5% 2% 2% 2%;
 }
 
+/* Vehicules styles*/
+#inv-display {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 20px 5px;
+  max-width: 1200px;
+}
+
+#inv-display li {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#inv-display li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+#inv-display li a img {
+  width: 350px;
+  height: 200px;
+  display: block;
+  border-bottom: 3px solid #ddd;
+  object-fit: contain;
+}
+
+.namePrice {
+  padding: 15px;
+  text-align: center;
+}
+
+.namePrice h2 {
+  font-size: 1.4rem;
+  margin: 10px 0;
+}
+
+.namePrice span {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: red;
+}
+
+.namePrice hr {
+  border: none;
+  height: 2px;
+  background: #ddd;
+  margin: 10px 0;
+}
+
+/* Media Queries */
+@media screen and (max-width: 900px) {
+  .navigation li a {
+    font-size: 1rem;
+  }
+}
 
 /* Media Queries */
 @media screen and (max-width: 600px) {
   #container {
     grid-template-columns: repeat(5, 1fr);
+  }
+
+  .navigation li a {
+    font-size: 0.80rem;
+  }
+
+  .navigation {
+    margin: 0%;
+    display: flex;
+    justify-items: right;
+  }
+
+  .navigation ul {
+    width: 70%;
+  }
+
+  #inv-display {
+    background-color: red;
+    display: block;
   }
 
   #info {
@@ -222,12 +318,6 @@ h2 {
 
   #featured p {
     font-size: 0.7rem;
-  }
-
-  .navigation li {
-    margin: 0 1%;
-    color: var(--colorWhite);
-    font-size: .7rem;
   }
 
   #reviews li {
