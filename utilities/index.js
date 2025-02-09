@@ -68,3 +68,26 @@ Util.buildClassificationGrid = async function (data) {
     }
     return grid
 }
+
+/* **************************************s
+* Build the vehicle view HTML
+* ************************************ */
+Util.buildVehicleHtml = function (vehicleData) {
+
+    const formattedPrice = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+    }).format(vehicleData.inv_price);
+
+    const formattedMileage = new Intl.NumberFormat("en-US").format(vehicleData.inv_miles);
+
+    return `
+        <div class="vehicle-detail">
+            <h1>${vehicleData.inv_make} ${vehicleData.inv_model} (${vehicleData.inv_year})</h1>
+            <img src="${vehicleData.inv_image}" alt="${vehicleData.inv_make} ${vehicleData.inv_model}" class="vehicle-image" />
+            <p><strong>Price:</strong> ${formattedPrice}</p>
+            <p><strong>Mileage:</strong> ${formattedMileage} miles</p>
+            <p><strong>Description:</strong> ${vehicleData.inv_description}</p>
+        </div>
+    `;
+};
