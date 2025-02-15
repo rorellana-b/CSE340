@@ -1,0 +1,18 @@
+<% if (title) { %>
+    <h1>
+        <%= title %>
+    </h1>
+    <% } else { res.redirect('/') } %>
+        <!-- <% if (messages.length> 0) { %>
+            <ul>
+                <% messages.forEach(function(message) { %>
+                    <li>
+                        <%= message %>
+                    </li>
+                    <% }); %>
+            </ul>
+            <% } %> -->
+        <ul>
+            <li><a href="/inv/add-classification">Add New Classification</a></li>
+            <li><a href="/inv/add-inventory">Add New Inventory</a></li>
+        </ul>

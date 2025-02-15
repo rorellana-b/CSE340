@@ -49,4 +49,43 @@ invCont.getVehicleDetails = async function (req, res) {
     }
 };
 
+// Función para construir la vista de gestión de inventario
+invCont.buildInventoryManagementView = async function (req, res, next) {
+    try {
+        const nav = await Util.getNav();  // Obtener la navegación
+        res.render("./inventory/add-classification", {
+            title: "Agregar Nueva Clasificación",
+            nav
+        });
+    } catch (error) {
+        next(error);
+    }
+}
+
+invCont.getAddClassificationView = async function (req, res, next) {
+    try {
+        const nav = await Util.getNav();  // Obtener la navegación
+        res.render("./inventory/add-classification", {
+            title: "Agregar Nueva Clasificación",
+            nav
+        });
+    } catch (error) {
+        next(error);
+    }
+}
+
+// Función para mostrar la vista de agregar inventario
+invCont.getAddInventoryView = async function (req, res, next) {
+    try {
+        const nav = await Util.getNav();  // Obtener la navegación
+        res.render("./inventory/add-inventory", {
+            title: "Agregar Nuevo Inventario",
+            nav
+        });
+    } catch (error) {
+        next(error);
+    }
+}
+
+
 module.exports = invCont
