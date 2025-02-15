@@ -7,7 +7,7 @@
  *************************/
 const session = require("express-session")
 const flash = require('connect-flash')
-const pool = require('./database')
+// const pool = require('./database')
 const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
 const env = require("dotenv").config();
@@ -30,6 +30,13 @@ const inventoryRoute = require("./routes/inventoryRoute");
 /* ***********************
  * Middleware
  * ************************/
+
+// Configura el pool de conexión con SSL habilitado
+const pool = new Pool({
+    connectionString: process.env.DATABASE_URL, // Usando DATABASE_URL desde .env
+    ssl: { rejectUnauthorized: false }  // Esto habilita SSL
+});
+
 app.use(session({
     store: new (require('connect-pg-simple')(session))({
         createTableIfMissing: true,
