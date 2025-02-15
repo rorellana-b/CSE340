@@ -31,16 +31,10 @@ const inventoryRoute = require("./routes/inventoryRoute");
  * Middleware
  * ************************/
 
-// Configura el pool de conexión con SSL habilitado
-const pool = new Pool({
-    connectionString: process.env.DATABASE_URL, // Usando DATABASE_URL desde .env
-    ssl: { rejectUnauthorized: false }  // Esto habilita SSL
-});
-
 app.use(session({
     store: new (require('connect-pg-simple')(session))({
         createTableIfMissing: true,
-        pool, // Usando el pool importado
+        pool,
     }),
     secret: process.env.SESSION_SECRET,
     resave: true,
