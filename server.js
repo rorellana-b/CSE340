@@ -40,13 +40,13 @@ const pool = new Pool({
 app.use(session({
     store: new (require('connect-pg-simple')(session))({
         createTableIfMissing: true,
-        pool,
+        pool, // Usando el pool importado
     }),
     secret: process.env.SESSION_SECRET,
     resave: true,
     saveUninitialized: true,
     name: 'sessionId',
-}))
+}));
 
 // Express Messages Middleware
 app.use(function (req, res, next) {
