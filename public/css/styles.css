@@ -36,6 +36,15 @@ body {
   margin: auto;
 }
 
+.form2 {
+  background-color: #0cbff5;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 450px;
+  margin: auto;
+}
+
 .wf1 div {
   display: flex;
   flex-direction: column;
@@ -61,10 +70,10 @@ body {
   width: 100%;
   max-width: 400px;
   appearance: none;
+  margin: 2% 0;
 }
 
-
-#togglePassword {
+.togglePassword {
   width: 80%;
   background-color: #000;
   color: #fff;
@@ -73,8 +82,19 @@ body {
   margin: 1%;
 }
 
-#submit {
-  width: 30%;
+.submit {
+  width: 50%;
+  margin-top: 5%;
+}
+
+.wf1 input:invalid:focus {
+  background-color: #ffcccc;
+  /* Rojo claro */
+}
+
+.wf1 input:valid {
+  background-color: #ccffcc;
+  /* Verde claro */
 }
 
 /* Style for header */

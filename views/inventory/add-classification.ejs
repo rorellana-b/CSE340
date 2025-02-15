@@ -3,10 +3,17 @@
         <%= title %>
     </h1>
     <% } else { res.redirect('/') } %>
-        <h1>Agregar Nueva Clasificación</h1>
-        <form action="/inv/add-classification" method="POST">
-            <!-- Campos para agregar clasificación -->
-            <label for="classification_name">Nombre de la Clasificación:</label>
-            <input type="text" id="classification_name" name="classification_name" required>
-            <button type="submit">Agregar Clasificación</button>
-        </form>
+        <%= messages() %>
+            <div class="form2">
+                <label>FIELD IS REQUIRED</label>
+                <fieldset>
+                    <form action="./add-classification" method="POST" class="wf1">
+                        <label>Clasification Name</label>
+                        <label>NAME MUST BE IN ALPHABETIC CHARACTER ONLY</label>
+                        <input type="text" id="classification_name" name="classification_name" required>
+
+                        <button type="submit" class="submit">Add Classification</button>
+                    </form>
+                </fieldset>
+
+            </div>

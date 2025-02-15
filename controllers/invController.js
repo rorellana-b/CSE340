@@ -53,8 +53,8 @@ invCont.getVehicleDetails = async function (req, res) {
 invCont.buildInventoryManagementView = async function (req, res, next) {
     try {
         const nav = await Util.getNav();  // Obtener la navegación
-        res.render("./inventory/add-classification", {
-            title: "Agregar Nueva Clasificación",
+        res.render("./inventory/management", {
+            title: "Vehicle Management",
             nav
         });
     } catch (error) {
@@ -66,7 +66,7 @@ invCont.getAddClassificationView = async function (req, res, next) {
     try {
         const nav = await Util.getNav();  // Obtener la navegación
         res.render("./inventory/add-classification", {
-            title: "Agregar Nueva Clasificación",
+            title: "Add New Classification",
             nav
         });
     } catch (error) {

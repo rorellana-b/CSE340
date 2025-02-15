@@ -11,10 +11,10 @@ router.get("/type/:classificationId", invController.buildByClassificationId);
 router.get("/detail/:inv_id", invController.getVehicleDetails);
 
 // Route to show the control of inventory
-router.get("/inv", Util.handleErrors(invController.buildInventoryManagementView));
+router.get('/', invController.buildInventoryManagementView);
 
 // inventoryRoute.js
-router.get("/inv/add-classification", Util.handleErrors(invController.getAddClassificationView));
-router.get("/inv/add-inventory", Util.handleErrors(invController.getAddInventoryView));
+router.get("/add-classification", invController.getAddClassificationView);
+// router.get("/inv/add-inventory", Util.handleErrors(invController.getAddInventoryView));
 
 module.exports = router;
