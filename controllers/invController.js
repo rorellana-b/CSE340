@@ -146,14 +146,14 @@ invCont.registerClassification = async function (req, res, next) {
             "notice",
             `Congratulations, you\'re registered.`
         )
-        res.status(201).render("inventory/login", {
-            title: "Login",
+        res.status(201).render("inventory/management", {
+            title: "Management",
             nav,
         })
     } else {
         req.flash("notice", "Sorry, the registration failed.")
-        res.status(501).render("account/register", {
-            title: "Registration",
+        res.status(501).render("inventory/management", {
+            title: "Management",
             nav,
         })
     }
