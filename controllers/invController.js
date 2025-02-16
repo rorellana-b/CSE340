@@ -159,44 +159,44 @@ invCont.registerClassification = async function (req, res, next) {
     }
 }
 
-// Función para mostrar la vista de agregar inventario
-invCont.registerClassification = async function (req, res, next) {
-    let nav = await Util.getNav()
+// // Función para mostrar la vista de agregar inventario
+// invCont.registerClassification = async function (req, res, next) {
+//     let nav = await Util.getNav()
 
-    //get info at the form
-    const { classification_name } = req.body
+//     //get info at the form
+//     const { classification_name } = req.body
 
-    try {
-        res.status(500).render("inventory/management", {
-            title: "Add Classification",
-            nav,
-            message: "Adding Successfully",
-            errors: null,
-        });
-    }
-    catch (error) {
-        next(error)
-        res.status(500).send("Error adding classification.");
-    }
-    const regResult = await invModel.regiterInventory(
-        classification_name
-    )
-    if (regResult) {
-        req.flash(
-            "notice",
-            `Congratulations, you\'re registered ${account_firstname}. Please log in.`
-        )
-        res.status(201).render("inventory/login", {
-            title: "Login",
-            nav,
-        })
-    } else {
-        req.flash("notice", "Sorry, the registration failed.")
-        res.status(501).render("account/register", {
-            title: "Registration",
-            nav,
-        })
-    }
-}
+//     try {
+//         res.status(500).render("inventory/management", {
+//             title: "Add Classification",
+//             nav,
+//             message: "Adding Successfully",
+//             errors: null,
+//         });
+//     }
+//     catch (error) {
+//         next(error)
+//         res.status(500).send("Error adding classification.");
+//     }
+//     const regResult = await invModel.regiterInventory(
+//         classification_name
+//     )
+//     if (regResult) {
+//         req.flash(
+//             "notice",
+//             `Congratulations, you\'re registered ${account_firstname}. Please log in.`
+//         )
+//         res.status(201).render("inventory/login", {
+//             title: "Login",
+//             nav,
+//         })
+//     } else {
+//         req.flash("notice", "Sorry, the registration failed.")
+//         res.status(501).render("account/register", {
+//             title: "Registration",
+//             nav,
+//         })
+//     }
+// }
 
 module.exports = invCont
