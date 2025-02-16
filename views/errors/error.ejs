@@ -2,9 +2,10 @@
     <h1>
         <%= title %>
     </h1>
-    <% } else { res.redirect('/') } %>
+    <% } else { %>
+        <h1>Error</h1>
+        <% } %>
 
-
-        <li>
-            <%= message %>
-        </li>
+            <li>
+                <%= message %>
+            </li>

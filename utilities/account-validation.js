@@ -49,6 +49,14 @@ validate.registationRules = () => {
                 minSymbols: 1,
             })
             .withMessage("Password does not meet requirements."),
+
+        // lastname is required and must be string
+        body("inv_make")
+            .trim()
+            .escape()
+            .notEmpty()
+            .isLength({ min: 3 })
+            .withMessage("Please provide data."), // on error this message is sent.
     ]
 }
 
@@ -74,5 +82,23 @@ validate.checkRegData = async (req, res, next) => {
     }
     next()
 }
+
+validate.checkInvData = async (req, res, next) => {
+    const { inv_make } = req.body
+    let errors = []
+    errors = validationResult(req)
+    if (!errors.isEmpty()) {
+        let nav = await utilities.getNav()
+        res.render("inventory/management", {
+            errors,
+            title: "Management",
+            nav,
+            inv_make
+        })
+        return
+    }
+    next()
+}
+
 
 module.exports = validate

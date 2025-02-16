@@ -7,16 +7,46 @@ const invCont = {}
  *  Build inventory by classification view
  * ************************** */
 invCont.buildByClassificationId = async function (req, res, next) {
-    const classification_id = req.params.classificationId
-    const data = await invModel.getInventoryByClassificationId(classification_id)
-    const grid = await Util.buildClassificationGrid(data)
-    let nav = await Util.getNav()
-    const className = data[0].classification_name
-    res.render("./inventory/classification", {
-        title: className + " vehicles",
-        nav,
-        grid,
-    })
+    try {
+        const classification_id = req.params.classificationId;
+        const data = await invModel.getInventoryByClassificationId(classification_id);
+
+        // Verificar si hay datos antes de acceder a data[0]
+        if (!data || data.length === 0) {
+            return res.status(404).render("error", {
+                title: "No Vehicles Found",
+                message: "No vehicles found for this classification.",
+                nav: await Util.getNav(),
+            });
+        }
+
+        const grid = await Util.buildClassificationGrid(data);
+        const nav = await Util.getNav();
+        const className = data[0].classification_name;
+
+        res.render("./inventory/classification", {
+            title: className + " vehicles",
+            nav,
+            grid,
+        });
+    } catch (error) {
+        console.error("Error in buildByClassificationId:", error);
+        res.status(500).render("error", {
+            title: "Server Error",
+            message: "An error occurred while retrieving the inventory.",
+            nav: await Util.getNav(),
+        });
+    }
+    // const classification_id = req.params.classificationId
+    // const data = await invModel.getInventoryByClassificationId(classification_id)
+    // const grid = await Util.buildClassificationGrid(data)
+    // let nav = await Util.getNav()
+    // const className = data[0].classification_name
+    // res.render("./inventory/classification", {
+    //     title: className + " vehicles",
+    //     nav,
+    //     grid,
+    // })
 }
 
 /* ***************************
@@ -78,8 +108,10 @@ invCont.getAddClassificationView = async function (req, res, next) {
 invCont.getAddInventoryView = async function (req, res, next) {
     try {
         const nav = await Util.getNav();  // Obtener la navegación
+        const classifications = await invModel.getClassificationsForm();
         res.render("./inventory/add-inventory", {
-            title: "Agregar Nuevo Inventario",
+            title: "Add new Inventory",
+            classifications,
             nav
         });
     } catch (error) {
@@ -87,5 +119,84 @@ invCont.getAddInventoryView = async function (req, res, next) {
     }
 }
 
+// Función para mostrar la vista de agregar clasificacion
+invCont.registerClassification = async function (req, res, next) {
+    let nav = await Util.getNav()
+
+    //get info at the form
+    const { classification_name } = req.body
+
+    try {
+        res.status(500).render("inventory/management", {
+            title: "Add Classification",
+            nav,
+            message: "Adding Successfully",
+            errors: null,
+        });
+    }
+    catch (error) {
+        next(error)
+        res.status(500).send("Error adding classification.");
+    }
+    const regResult = await invModel.registerClassification(
+        classification_name
+    )
+    if (regResult) {
+        req.flash(
+            "notice",
+            `Congratulations, you\'re registered ${account_firstname}. Please log in.`
+        )
+        res.status(201).render("inventory/login", {
+            title: "Login",
+            nav,
+        })
+    } else {
+        req.flash("notice", "Sorry, the registration failed.")
+        res.status(501).render("account/register", {
+            title: "Registration",
+            nav,
+        })
+    }
+}
+
+// Función para mostrar la vista de agregar inventario
+invCont.registerClassification = async function (req, res, next) {
+    let nav = await Util.getNav()
+
+    //get info at the form
+    const { classification_name } = req.body
+
+    try {
+        res.status(500).render("inventory/management", {
+            title: "Add Classification",
+            nav,
+            message: "Adding Successfully",
+            errors: null,
+        });
+    }
+    catch (error) {
+        next(error)
+        res.status(500).send("Error adding classification.");
+    }
+    const regResult = await invModel.regiterInventory(
+        classification_name
+    )
+    if (regResult) {
+        req.flash(
+            "notice",
+            `Congratulations, you\'re registered ${account_firstname}. Please log in.`
+        )
+        res.status(201).render("inventory/login", {
+            title: "Login",
+            nav,
+        })
+    } else {
+        req.flash("notice", "Sorry, the registration failed.")
+        res.status(501).render("account/register", {
+            title: "Registration",
+            nav,
+        })
+    }
+}
 
 module.exports = invCont

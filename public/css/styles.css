@@ -59,8 +59,10 @@ body {
 }
 
 .wf1 input[type="text"],
+.wf1 select,
 .wf1 input[type="password"],
-.wf1 input[type="email"] {
+.wf1 input[type="email"],
+.wf1 input[type="number"] {
   background-color: #eee;
   display: block;
   border: solid 1px var(--border);
@@ -71,6 +73,16 @@ body {
   max-width: 400px;
   appearance: none;
   margin: 2% 0;
+}
+
+#inv_description {
+  height: 100px;
+}
+
+.wf1 input[type="number"]::-webkit-outer-spin-button,
+.wf1 input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .togglePassword {

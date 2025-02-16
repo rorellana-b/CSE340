@@ -3,10 +3,39 @@
         <%= title %>
     </h1>
     <% } else { res.redirect('/') } %>
-        <h1>Agregar Nueva Clasificación</h1>
-        <form action="/inv/add-classification" method="POST">
-            <!-- Campos para agregar clasificación -->
-            <label for="classification_name">Nombre de la Clasificación:</label>
-            <input type="text" id="classification_name" name="classification_name" required>
-            <button type="submit">Agregar Clasificación</button>
-        </form>
+
+        <div class="form2">
+            <label>FIELD IS REQUIRED</label>
+            <fieldset>
+                <form action="./add-inventory.ejs" method="POST" class="wf1">
+                    <label for="classification">Classification:<select name="classification" id="classification"
+                            required>
+                            <option value="">Select a classification</option>
+                            <% classifications.forEach(classification=> { %>
+                                <option value="<%= classification.classification_id %>">
+                                    <%= classification.classification_name %>
+                                </option>
+                                <% }) %>
+                        </select></label>
+                    <label for="">Make:<input type="text" name="inv_make" id="inv_make"
+                            placeholder="Min of 3 Characters" minlength="3" required></label>
+                    <label for="">Model:<input type="text" name="inv_model" id="inv_model"
+                            placeholder="Min of 3 Characters" minlength="3" required></label>
+                    <label for="">Description:<input type="text" name="inv_description" id="inv_description"></label>
+                    <label for="">Image Path:<input type="text" name="inv_image" id="inv_image"
+                            value="/images/vehicle/no-image.png"></label>
+                    <label for="">Thumbnail Path:<input type="text" name="inv_thumbnail" id="inv_thumbnail"
+                            value="/images/vehicle/no-image.png"></label>
+                    <label for="">Price:<input type="number" name="inv_price" id="inv_price"
+                            placeholder="Decimal or Integer" step="any" required></label>
+                    <label for="">Years:<input type="number" name="inv_year" id="inv_year" placeholder="4-digit years"
+                            required></label>
+                    <label for="">Miles:<input type="number" name="inv_miles" id="inv_miles" placeholder="Digits only"
+                            required></label>
+                    <label for="">Color:<input type="text" name="inv_color" id="inv_color" required></label>
+
+                    <button type="submit" class="submit">Add Classification</button>
+                </form>
+            </fieldset>
+
+        </div>

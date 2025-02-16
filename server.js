@@ -19,8 +19,8 @@ const bodyParser = require("body-parser")
 /* ***********************
  * View Engine and Template
  *************************/
-app.set("view engine", "ejs");
 app.use(expressLayouts);
+app.set("view engine", "ejs");
 app.set("layout", "layouts/layout"); // Layout para las vistas
 const static = require("./routes/static");
 const baseController = require("./controllers/baseController");
@@ -77,8 +77,9 @@ app.use(async (req, res, next) => {
  *************************/
 app.use(async (err, req, res, next) => {
     let nav = await utilities.getNav();
+    const statusCode = err.status || 500;
     console.error(`Error at: "${req.originalUrl}": ${err.message}`);
-    res.render("errors/error", {
+    res.status(statusCode).render("errors/error", {
         title: err.status || 'Server Error',
         message: err.message,
         nav

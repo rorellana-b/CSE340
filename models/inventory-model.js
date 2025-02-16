@@ -43,7 +43,39 @@ async function getVehicleById(inv_id) {
         console.error("getVehicleById error " + error);
     }
 }
+/* *****************************
+*   Register new classification
+* *************************** */
+async function registerClassification(classification_name) {
+    try {
+        const sql = "INSERT INTO classification (classification_name) VALUES ($1) RETURNING *"
+        console.log({ classification_name });
+        return await pool.query(sql, [classification_name])
+    } catch (error) {
+        return error.message
+    }
+}
+/* *****************************
+*   Register new inventory
+* *************************** */
+// async function registerInventory(classification_name) {
+//     try {
+//         const sql = "INSERT INTO classification (classification_name) VALUES ($1) RETURNING *"
+//         console.log({ classification_name });
+//         return await pool.query(sql, [classification_name])
+//     } catch (error) {
+//         return error.message
+//     }
+// }
 
-
-module.exports = { getClassifications, getInventoryByClassificationId, getVehicleById };
+//to select the classification in the form
+async function getClassificationsForm() {
+    try {
+        const result = await pool.query("SELECT * FROM public.classification ORDER BY classification_name");
+        return result.rows;
+    } catch (error) {
+        throw new Error("Error fetching classifications: " + error.message);
+    }
+}
+module.exports = { getClassifications, getInventoryByClassificationId, getVehicleById, registerClassification, getClassificationsForm };
 
