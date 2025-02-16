@@ -144,7 +144,7 @@ invCont.registerClassification = async function (req, res, next) {
     if (regResult) {
         req.flash(
             "notice",
-            `Congratulations, you\'re registered ${account_firstname}. Please log in.`
+            `Congratulations, you\'re registered.`
         )
         res.status(201).render("inventory/login", {
             title: "Login",
